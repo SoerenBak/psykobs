@@ -1,0 +1,39 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@using Umbraco.Core.Models.PublishedContent
+@using Umbraco.Web
+@using Umbraco.Core
+
+<section>
+	<div class="indi">
+		<div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+			</ol>
+			<div class="carousel-inner max-images">
+				<div class="carousel-item active">
+					<img class="d-block w-100" src="https://res.cloudinary.com/dgu1pjnws/image/upload/v1534957175/Psykobs/psykobs.png" alt="lad os, bryde tavsheden">
+				</div>
+				<div class="carousel-item">
+					<img class="d-block w-100" src="https://res.cloudinary.com/dgu1pjnws/image/upload/v1534957173/Psykobs/Aalborg-psykobs-undervisere.jpg" alt="PsykOBS Aalborg medlemmer">
+				</div>
+				<div class="carousel-item">
+					<img class="d-block w-100" src="https://res.cloudinary.com/dgu1pjnws/image/upload/v1534957175/Psykobs/K%C3%B8benhavn-psykobs.png" alt="PsykOBS Koebenhavn medlemmer">
+				</div>
+				<div class="carousel-item">
+					<img class="d-block w-100" src="https://res.cloudinary.com/dgu1pjnws/image/upload/v1534957173/Psykobs/Aalborg-psykobs.jpg" alt="PsykOBS teamet">
+				</div>
+			</div>
+			<a class="carousel-control-prev indi" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next indi" href="#carouselExampleIndicators" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
+</section>

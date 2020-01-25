@@ -1,0 +1,65 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Forside>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@{
+	Layout = "master.cshtml";
+}
+
+<header class="main-background header-text">
+	<div class="container text-center">
+		<h1>@Model.ForsideHeader</h1>
+		<h5 class="sub-shadow">@Model.ForsideHeaderSlogan</h5>
+	</div>
+</header>
+
+
+<section>
+	<content>
+		@Html.GetGridHtml(Model, "content")
+	</content>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h2>@Model.Introduktion</h2>
+			</div>
+			<div class="col-lg-6">
+				<div data-aos="fade-up">
+					<blockquote class="quote-box">
+						<p class="quotation-mark">“</p>
+						<p class="quote-text">@Model.Citat1</p>
+					</blockquote>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div data-aos="fade-up">
+					<blockquote class="quote-box">
+						<p class="quotation-mark">“</p>
+						<p class="quote-text">@Model.Citat2</p>
+					</blockquote>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div data-aos="fade-up">
+					<blockquote class="quote-box">
+						<p class="quotation-mark">“</p>
+						<p class="quote-text">@Model.Citat3</p>
+					</blockquote>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div data-aos="fade-up">
+					<blockquote class="quote-box">
+						<p class="quotation-mark">“</p>
+						<p class="quote-text">@Model.Citat4</p>
+					</blockquote>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+@Html.Partial("Instagram Widget")
+

@@ -1,0 +1,88 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@using Umbraco.Web
+
+@{ var selection = Model.Content.Root().Children.Where(x => x.IsVisible()).ToArray(); }
+
+@if (selection.Length > 0)
+{
+   
+}
+
+<footer class="main-background">
+    <div class="container">
+        <div class="row pt-5 mb-3 text-center d-flex justify-content-center footer-links">
+
+            @foreach (var item in selection)
+            {
+            <div class="col-lg-4 col-xl-2 mb-3">
+                <h6 class="@(item.IsAncestorOrSelf(Model.Content) ? "active" : null) footer-links">
+                    <a href="@item.Url">@item.Name</a>
+                </h6>
+                
+            </div>
+            }
+        </div>
+        <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+        </div>
+        <hr class="">
+        <div class="row">
+            <div class="col-lg-5 col-md-4 text-center">
+                <div class="socials">
+                    <div>Psykobs Aalborg <br /></div>
+                    <div class="text-center">
+                        <span class="fa-stack fa-lg">
+                            <a href="https://www.facebook.com/psykobsaalborg/" target="_blank">
+                                <i class="fa fa-circle fa-stack-2x icon-background1"></i>
+                                <i class="fab fa-facebook-f fa-stack-1x"></i>
+                            </a>
+                        </span>
+
+                        <span class="fa-stack fa-lg">
+                            <a href="https://www.instagram.com/psykobsaalborg/" target="_blank">
+                                <i class="fa fa-circle fa-stack-2x icon-background1"></i>
+                                <i class="fab fa-instagram fa-stack-1x"></i>
+                            </a>
+                        </span>
+
+                        <span class="fa-stack fa-lg">
+                            <a href="mailto:psykobs.aalborg@gmail.com">
+                                <i class="fa fa-circle fa-stack-2x icon-background1"></i>
+                                <i class="fa fa-envelope fa-stack-1x"></i>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4  text-center socials">
+                <a href="http://www.tuborgfondet.dk/" target="_blank"><img src="https://res.cloudinary.com/dgu1pjnws/image/upload/v1534957173/Psykobs/Tuborg-fondet-hvid.png" class="img-fluid tuborg-logo" /></a>
+            </div>
+            <div class="col-lg-5 col-md-4 text-center">
+                <div class="socials">
+                    <div>Psykobs København</div>
+                    <span class="fa-stack fa-lg">
+                        <a href="https://www.facebook.com/psykobs/" target="_blank">
+                            <i class="fa fa-circle fa-stack-2x icon-background1"></i>
+                            <i class="fab fa-facebook-f fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <span class="fa-stack fa-lg">
+                        <a href="https://www.instagram.com/psykobskbh/" target="_blank">
+                            <i class="fa fa-circle fa-stack-2x icon-background1"></i>
+                            <i class="fab fa-instagram fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <span class="fa-stack fa-lg">
+                        <a href="mailto:psykobs.kbh@gmail.com">
+                            <i class="fa fa-circle fa-stack-2x icon-background1"></i>
+                            <i class="fa fa-envelope fa-stack-1x"></i>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright py-3 text-center">
+        © 2018 Copyright:
+        <a href="www.psykobs.dk"> Psykobs </a> <br /><a href="/sitemap">Sitemap</a>
+    </div>
+</footer>

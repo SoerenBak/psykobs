@@ -1,0 +1,25 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Medlemmer>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+}
+
+
+@{
+	var selection = Umbraco.Content(Guid.Parse("a66a425b-82b3-44da-a799-37477ab8bdfc"))
+    .ChildrenOfType("medlemMain")
+    .Where(x => x.IsVisible());
+}
+    <div class="medlemmer-page">
+        <div class="container">
+            <ul>
+                @foreach (var item in selection)
+                {
+                    <h2>
+                        <a href="@item.Url">@item.Name <hr /></a>                      
+                    </h2>
+                }
+            </ul>
+        </div>
+    </div>
+
