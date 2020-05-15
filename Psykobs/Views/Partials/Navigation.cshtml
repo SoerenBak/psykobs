@@ -37,7 +37,7 @@
                         var itemChildren = item.Children.Where(x => x.IsVisible());
                         bool hasChildren = itemChildren != null && itemChildren.Any();
 
-                        if (hasChildren && item.ContentType.Alias != "articleList")
+                        if (hasChildren && item.ContentType.Alias != "medlemMain")
                         {
                             <li class="nav-link dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="navbarDropdown">@item.Name</a>

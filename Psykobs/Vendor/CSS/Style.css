@@ -499,3 +499,9 @@ strong img {
 .sitemap a {
     color: #000;
 }
+
+/*Nyheder*/
+
+article.news h2 a {
+    color: #009148;
+}

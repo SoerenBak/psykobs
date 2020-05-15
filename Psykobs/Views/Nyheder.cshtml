@@ -1,0 +1,38 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Nyheder>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+}
+
+<header class="main-background header-text">
+	<div class="container text-center">
+		<div data-aos="fade-right" data-aos-duration="1500">
+			<h1>@Model.Name</h1>
+		</div>
+	</div>
+</header>
+
+
+@{
+	var selection = Umbraco.Content(Guid.Parse("0601eb21-af62-49ba-926c-4bbeec953492"))
+    .ChildrenOfType("nyhed")
+    .Where(x => x.IsVisible());
+}
+
+<div class="container">
+	@foreach (var item in selection)
+	{
+		<article class="news">
+			<div class="col-lg-12">
+				<h2><a href="@item.Url">@item.Name</a></h2><br />
+				<time>Dato: @item.CreateDate.ToString("dd-mm, yyyy")</time>
+			</div>
+		</article>
+		<hr />
+		
+	}
+</div>
+
+	
+
+

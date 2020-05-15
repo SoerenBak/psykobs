@@ -295,6 +295,8 @@
     <Content Include="Media\idqpysbe\undervisning-katedral-psykobs2.jpg" />
     <Content Include="Media\moyhgjcw\aalborg-psykobs-undervisere.jpg" />
     <Content Include="Media\rhllv5i2\aalborg-psykobs.jpg" />
+    <Content Include="Vendor\CSS\BetterNav\bootstrap-better-nav.css" />
+    <Content Include="Vendor\CSS\BetterNav\bootstrap-better-nav.js" />
     <Content Include="Vendor\CSS\Style.css" />
     <Content Include="Vendor\CSS\Styles.min.css" />
     <Content Include="Vendor\JS\paging.js" />
@@ -310,6 +312,8 @@
     <Compile Include="App_Data\Models\MedlemMain.generated.cs" />
     <Compile Include="App_Data\Models\Medlemmer.generated.cs" />
     <Compile Include="App_Data\Models\Member.generated.cs" />
+    <Compile Include="App_Data\Models\Nyhed.generated.cs" />
+    <Compile Include="App_Data\Models\Nyheder.generated.cs" />
     <Compile Include="App_Data\Models\Sitemap.generated.cs" />
     <Compile Include="App_Data\Models\StandardPage.generated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -370,6 +374,8 @@
     <Content Include="Views\MacroPartials\Footer.cshtml" />
     <Content Include="Views\Partials\Navigation.cshtml" />
     <Content Include="Views\Sitemap.cshtml" />
+    <Content Include="Views\Nyhed.cshtml" />
+    <Content Include="Views\Nyheder.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

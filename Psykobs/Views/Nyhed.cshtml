@@ -1,0 +1,22 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Nyhed>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+}
+
+	<header class="main-background header-text">
+		<div class="container text-center">
+			<div data-aos="fade-right" data-aos-duration="1500">
+				<h1>Nyheder</h1>
+			</div>
+		</div>
+	</header>
+
+
+	<div class="container">
+		<article>
+			<h2>@Model.Name</h2>
+			<p>@Model.Value("nyhedIndhold")</p>
+		</article>
+	</div>
+	
