@@ -2,15 +2,19 @@
 @using Umbraco.Web;
 
 @{
-    var site = Model.Root();
-    var selection = site.Children.Where(x => x.IsVisible()); <!-- see below for explanation of IsVisible helper method -->
+    var homePage = Model.Root();
+    var navItems = homePage.Children.Where(x => x.IsVisible());
+
+
+
 }
 
-<!-- uncomment this line if you want the site name to appear in the top navigation -->
-@*<a class="nav-link @Html.Raw(Model.Id == site.Id ? "navi-link--active" : "")" href="@site.Url">@site.Name</a>
-    @foreach (var item in selection)
-    {
-    <a class="nav-link @(item.IsAncestorOrSelf(Model) ? " nav-link--active" : null)" href="@item.Url">@item.Name</a>
+@*see below for explanation of IsVisible helper method
+         uncomment this line if you want the site name to appear in the top navigation
+        <a class="nav-link @Html.Raw(Model.Id == site.Id ? "navi-link--active" : "")" href="@site.Url">@site.Name</a>
+            @foreach (var item in selection)
+            {
+            <a class="nav-link @(item.IsAncestorOrSelf(Model) ? " nav-link--active" : null)" href="@item.Url">@item.Name</a>
     }*@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-nav footer-links">
@@ -23,20 +27,41 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li>
-                    <a class="nav-link @Html.Raw(Model.Id == site.Id ? "active" : "")" href="@site.Url">@site.Name</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="@homePage.Url">@homePage.Name</a>
                 </li>
-
-                @foreach (var item in selection)
+                @if (navItems != null && navItems.Any())
                 {
-                        <li>
-                            <a class="nav-link @(item.IsAncestorOrSelf(Model) ? "active" : null)" href="@item.Url">@item.Name</a>
-                        </li>
+                    foreach (var item in navItems)
+                    {
+                        var itemChildren = item.Children.Where(x => x.IsVisible());
+                        bool hasChildren = itemChildren != null && itemChildren.Any();
+
+                        if (hasChildren && item.ContentType.Alias != "articleList")
+                        {
+                            <li class="nav-link dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="navbarDropdown">@item.Name</a>
+                                <div class="dropdown-menu">
+                                    @foreach (var child in itemChildren)
+                                    {
+                                        <a class="dropdown-item" href="@child.Url">@child.Name</a>
+                                    }
+                                </div>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a class="nav-link @(item.IsAncestorOrSelf(Model) ? "active" : null)" href="@item.Url">@item.Name</a>
+                            </li>
+                        }
+                    }
                 }
             </ul>
         </div>
     </div>
 </nav>
+
 
 
 
